@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Canadá - CLIMAPP</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.mapa-wrapper{
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.mapa-wrapper img{
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+area{
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+<!-- MENU -->
+
+<nav class="sidebar" id="sidebar">
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <span class="menu-toggle-label">
+            CLIMAPP
+        </span>
+
+    </button>
+
+    <div class="sidebar-divider"></div>
+
+    <a href="home.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+
+    <a href="brasil.html">
+        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-label">Brasil</span>
+    </a>
+
+    <a href="mexico.html">
+        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-label">México</span>
+    </a>
+
+    <a href="estados-unidos.html">
+        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-label">Estados Unidos</span>
+    </a>
+
+    <a href="canada.html" class="active">
+        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-label">Canadá</span>
+    </a>
+
+    <a href="franca.html">
+        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-label">França</span>
+    </a>
+
+    <a href="alemanha.html">
+        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-label">Alemanha</span>
+    </a>
+
+    <div class="sidebar-footer">
+
+        <button class="btn-sair" onclick="sair()">
+            <span class="btn-sair-label">Sair</span>
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- CONTEÚDO -->
+
+<div class="main-wrapper">
+
+<header>
+
+    <div class="logo">
+        Canadá
+    </div>
+
+</header>
+
+<div class="container">
+
+    <h1>Mapa do Canadá</h1>
+
+    <p>
+        Clique nos estados destacados para visualizar
+        informações climáticas e geográficas.
+    </p>
+
+    <!-- MAPA -->
+
+    <div class="mapa-wrapper">
+<img src="img/canada.svg" usemap="#image-map">
+
+<map name="image-map">
+<area target="_blank" alt="quebec" title="quebec" href="" coords="588,298,584,296,576,292,574,296,568,294,570,288,568,285,565,281,563,277,563,270,552,270,542,263,534,257,531,262,522,262,515,261,514,270,520,280,521,290,519,301,520,309,529,315,532,326,535,339,533,351,521,362,527,374,528,387,530,402,535,452,541,467,548,475,560,480,566,480,576,478,579,469,584,460,596,451,608,435,616,416,619,404,625,396,635,385,653,380,666,372,674,364,681,354,682,346,682,342,639,361,636,361,633,353,633,351,630,354,634,360,634,363,635,368,628,368,620,368,615,365,608,357,606,353,604,342,607,336,605,329,615,331,621,326,625,323,624,316,619,314,616,307,611,291,605,287,602,283,593,273,594,286,590,294,587,299,591,299" shape="poly"
+onclick="abrirModal( event,'Quebec','Frio','8 milhões', '200 metros','Taiga' )">
+
+<area target="_blank" alt="alberta" title="alberta" href="" coords="281,284,276,301,269,322,257,364,270,387,279,411,278,432,309,440,332,298,284,286,283,284" shape="poly"
+onclick="abrirModal( event,'Alberta', 'Continental','4 milhões','645 metros','Pradarias' )">
+
+<area target="_blank" alt="british columbia" title="british columbia" href="" coords="188,246,185,245,186,260,191,255,198,255,203,275,203,295,207,305,208,316,202,323,201,334,208,332,203,339,202,342,202,345,205,346,204,349,206,350,209,346,210,354,206,357,204,359,204,363,208,366,203,367,201,369,201,372,207,373,207,377,210,376,211,381,211,385,217,379,215,389,215,393,224,387,221,397,222,407,274,430,273,410,265,393,256,369,253,361,277,286,189,246,189,245,190,246" shape="poly"
+onclick="abrirModal( event,'British Columbia','Oceânico','5 milhões','370 metros', 'Florestas Temperadas' )">
+
+<area target="_blank" alt="ontaro" title="ontaro" href="" coords="456,344,419,391,419,440,427,441,423,450,423,455,432,456,437,460,446,456,448,461,453,452,461,447,468,449,477,449,484,460,490,459,496,468,497,477,497,479,505,482,515,483,529,488,539,495,539,501,530,504,525,500,525,506,525,520,524,527,525,530,536,530,547,528,551,524,550,520,547,520,545,514,553,508,562,505,567,504,573,497,577,494,581,485,577,479,568,483,561,485,553,480,546,478,540,471,532,461,527,447,527,416,526,406,521,407,511,400,507,389,503,378,501,368,499,359,488,361,484,363,457,344,457,345" shape="poly"
+onclick="abrirModal(event,'Ontário','Frio Temperado','15 milhões','250 metros','Florestas' )">
+
+</map>
+
+    </div>
+
+</div>
+
+<!-- MODAL -->
+
+<dialog id="minhaModal">
+
+    <h2 id="titulo"></h2>
+
+    <table>
+
+        <tr>
+            <td><strong>Clima</strong></td>
+            <td id="clima"></td>
+        </tr>
+
+        <tr>
+            <td><strong>População</strong></td>
+            <td id="populacao"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Altitude</strong></td>
+            <td id="altitude"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Vegetação</strong></td>
+            <td id="vegetacao"></td>
+        </tr>
+
+    </table>
+
+    <button class="bt-fechar" id="fecharModal">
+        Fechar
+    </button>
+
+</dialog>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

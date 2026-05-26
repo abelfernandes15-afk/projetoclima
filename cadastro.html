@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - CLIMAPP</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f46811;
+            padding: 20px;
+        }
+
+        .container {
+            width: 950px;
+            max-width: 100%;
+            min-height: 550px;
+            display: flex;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+
+        /* ESQUERDA */
+        .left {
+            width: 45%;
+            background: #f7f0e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .circle {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #ff7b00;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* DIREITA */
+        .right {
+            width: 55%;
+            background: linear-gradient(135deg, #ff6a00, #ff3c3c);
+            padding: 60px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .right h1 {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        /* INPUTS */
+        .input-box {
+            width: 100%;
+            background: #fff8ef;
+            margin-bottom: 20px;
+            border-radius: 40px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s;
+        }
+
+        .input-box:hover {
+            transform: scale(1.02);
+        }
+
+        .input-box i {
+            color: #ff7b00;
+            font-size: 18px;
+        }
+
+        .input-box input {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* BOTÃO */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #ffca3a;
+            color: #8a2f00;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+        }
+
+        /* LINK LOGIN */
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .login-link a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVO */
+        @media(max-width:850px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .left {
+                padding: 40px 20px;
+            }
+
+            .circle {
+                width: 220px;
+                height: 220px;
+            }
+
+            .right {
+                padding: 40px 25px;
+            }
+
+            .right h1 {
+                font-size: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ESQUERDA -->
+        <div class="left">
+            <div class="circle">
+                <img src="img/boneco.svg" alt="Boneco">
+            </div>
+        </div>
+
+        <!-- DIREITA -->
+        <div class="right">
+
+            <h1>Criar Conta</h1>
+
+            <!-- NOME -->
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="nome" placeholder="Nome">
+            </div>
+
+            <!-- EMAIL -->
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="E-mail">
+            </div>
+
+            <!-- SENHA -->
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="senha" placeholder="Senha">
+            </div>
+
+            <!-- CONFIRMAR SENHA -->
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="confirmarSenha" placeholder="Confirmar Senha">
+            </div>
+
+            <!-- BOTÃO -->
+            <button type="button" class="btn" onclick="cadastrar()">
+                Cadastrar
+            </button>
+
+            <!-- LINK LOGIN -->
+            <div class="login-link">
+                Já possui conta? <a href="login.html">Entrar</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

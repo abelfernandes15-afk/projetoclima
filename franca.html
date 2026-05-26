@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>França - CLIMAPP</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.mapa-container{
+    display:flex;
+    justify-content:center;
+    margin-top:25px;
+}
+.mapa-container img{
+    border-radius:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+area{ cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+<nav class="sidebar" id="sidebar">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <span class="menu-toggle-label">CLIMAPP</span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <a href="home.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="brasil.html">
+        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-label">Brasil</span>
+    </a>
+    <a href="mexico.html">
+        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-label">México</span>
+    </a>
+    <a href="estados-unidos.html">
+        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-label">Estados Unidos</span>
+    </a>
+    <a href="canada.html">
+        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-label">Canadá</span>
+    </a>
+    <a href="franca.html" class="active">
+        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-label">França</span>
+    </a>
+    <a href="alemanha.html">
+        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-label">Alemanha</span>
+    </a>
+    <div class="sidebar-footer">
+        <button class="btn-sair" onclick="sair()">
+            <span class="btn-sair-label">Sair</span>
+        </button>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+<header>
+    <div class="logo">França</div>
+</header>
+
+<div class="container">
+    <h1>Mapa da França</h1>
+    <p>Clique em um dos estados destacados no mapa.</p>
+
+    <div class="mapa-container">
+        <img src="img/franca.svg" usemap="#image-map" alt="Mapa da França">
+        <map name="image-map">
+            <area alt="ile-de-france" title="ile-de-france" href="#" coords="320,152,307,145,299,145,291,153,288,158,289,169,291,179,296,189,305,196,306,205,314,201,323,205,327,212,338,209,345,199,356,196,361,186,358,170,350,160,340,154" shape="poly"
+            onclick="abrirModal(event,'Île-de-France','Temperado Oceânico','12 milhões','35 metros','Florestas Temperadas')">
+
+            <area alt="provence" title="provence" href="#" coords="523,472,517,488,499,500,487,513,479,520,476,525,468,530,453,534,442,532,429,528,416,521,404,517,387,517,393,502,402,492,403,484,405,475,409,472,416,471,423,474,435,475,443,470,440,464,438,455,439,449,449,440,451,431,463,426,467,423,467,413,475,413,490,412,495,428,491,437,489,453,495,459,510,467,501,464" shape="poly"
+            onclick="abrirModal(event,'Provence-Alpes-Côte d\'Azur','Mediterrâneo','5 milhões','350 metros','Vegetação Mediterrânea')">
+
+            <area alt="nouvelle-aquitaine" title="nouvelle-aquitaine" href="#" coords="193,544,191,549,184,552,175,542,157,537,148,533,153,525,139,514,155,500,165,432,165,407,168,380,179,391,186,391,186,376,167,367,174,357,174,342,170,329,184,327,197,327,194,309,188,295,199,287,208,287,221,280,227,288,236,296,242,292,255,307,263,327,269,332,275,332,289,325,313,328,317,341,313,356,315,367,315,377,311,384,303,396,302,404,293,415,280,408,263,425,259,438,254,449,244,464,240,469,221,476,208,477,199,489,198,506,207,513,203,524,198,532" shape="poly"
+            onclick="abrirModal(event,'Nouvelle-Aquitaine','Oceânico','6 milhões','150 metros','Florestas e Vinhedos')">
+
+            <area alt="auvergne" title="auvergne" href="#" coords="422,459,406,457,396,457,383,463,370,433,357,425,348,416,338,421,331,433,322,418,311,433,305,437,301,423,302,415,308,409,312,397,318,391,315,379,318,366,322,341,312,321,320,320,326,309,336,306,350,306,361,309,369,317,380,322,377,333,386,345,392,341,399,334,407,335,419,322,429,322,433,328,443,333,456,325,463,330,455,338,472,328,486,327,487,341,494,353,488,361,495,371,500,381,500,393,491,401,477,407,465,403,463,415,459,421,447,429,443,443,436,447,429,449" shape="poly"
+            onclick="abrirModal(event,'Auvergne-Rhône-Alpes','Temperado Continental','8 milhões','500 metros','Florestas Alpinas')">
+        </map>
+    </div>
+</div>
+
+<dialog id="minhaModal">
+    <h2 id="titulo"></h2>
+    <table>
+        <tr><td><strong>Clima</strong></td><td id="clima"></td></tr>
+        <tr><td><strong>População</strong></td><td id="populacao"></td></tr>
+        <tr><td><strong>Altitude</strong></td><td id="altitude"></td></tr>
+        <tr><td><strong>Vegetação</strong></td><td id="vegetacao"></td></tr>
+    </table>
+    <button class="bt-fechar" id="fecharModal">Fechar</button>
+</dialog>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>México - CLIMAPP</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.mapa-container{
+    display:flex;
+    justify-content:center;
+    margin-top:25px;
+}
+.mapa-container img{
+    border-radius:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+area{ cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+<nav class="sidebar" id="sidebar">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <span class="menu-toggle-label">CLIMAPP</span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <a href="home.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="brasil.html">
+        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-label">Brasil</span>
+    </a>
+    <a href="mexico.html" class="active">
+        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-label">México</span>
+    </a>
+    <a href="estados-unidos.html">
+        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-label">Estados Unidos</span>
+    </a>
+    <a href="canada.html">
+        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-label">Canadá</span>
+    </a>
+    <a href="franca.html">
+        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-label">França</span>
+    </a>
+    <a href="alemanha.html">
+        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-label">Alemanha</span>
+    </a>
+    <div class="sidebar-footer">
+        <button class="btn-sair" onclick="sair()">
+            <span class="btn-sair-label">Sair</span>
+        </button>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+<header>
+    <div class="logo">México</div>
+</header>
+
+<div class="container">
+    <h1>Mapa do México</h1>
+    <p>Clique em um dos estados destacados no mapa.</p>
+
+    <div class="mapa-container">
+        <img src="img/mexico.svg" usemap="#image-map" alt="Mapa do México">
+        <map name="image-map">
+            <area alt="sonora" title="sonora" href="#" coords="195,93,318,137,393,137,393,145,392,154,395,165,401,171,402,194,399,218,402,231,399,240,386,244,389,253,397,265,404,281,380,306,369,296,356,292,349,279,336,274,330,258,322,249,311,247,297,238,289,224,280,218,267,195,257,181,253,166,250,150,249,142,233,132,221,124,205,126,196,117,185,113,182,104,185,92" shape="poly"
+            onclick="abrirModal(event,'Sonora','Árido e Semiárido','3,1 milhões','300 metros','Deserto de Sonora')">
+
+            <area alt="chihuahua" title="chihuahua" href="#" coords="445,120,411,119,414,131,396,136,396,154,403,176,403,194,402,213,403,232,401,238,388,245,405,278,414,283,421,299,427,310,443,314,454,326,463,323,477,290,488,287,501,292,511,297,518,297,533,297,542,288,557,288,555,269,550,252,555,244,571,216,546,202,533,191,522,175,516,162,503,152,494,142,472,123,481,132,459,120" shape="poly"
+            onclick="abrirModal(event,'Chihuahua','Árido e Temperado','3,8 milhões','1.400 metros','Deserto e Bosques')">
+
+            <area alt="jalisco" title="jalisco" href="#" coords="634,461,629,471,619,481,616,490,616,498,604,504,587,506,585,518,591,521,591,529,597,533,588,538,577,544,569,544,565,533,555,529,545,529,529,536,514,527,495,502,506,493,521,484,538,489,546,480,552,474,566,478,574,480,590,478,596,469,600,461,611,459,622,454" shape="poly"
+            onclick="abrirModal(event,'Jalisco','Tropical e Seco','8,8 milhões','1.500 metros','Florestas Tropicais')">
+
+            <area alt="yucatan" title="yucatan" href="#" coords="1024,475,1023,493,1039,496,1048,510,1059,524,1113,489,1124,474,1120,462,1084,458,1064,464,1047,469" shape="poly"
+            onclick="abrirModal(event,'Yucatán','Tropical Úmido','2,3 milhões','10 metros','Selva Tropical')">
+        </map>
+    </div>
+</div>
+
+<dialog id="minhaModal">
+    <h2 id="titulo"></h2>
+    <table>
+        <tr><td><strong>Clima</strong></td><td id="clima"></td></tr>
+        <tr><td><strong>População</strong></td><td id="populacao"></td></tr>
+        <tr><td><strong>Altitude</strong></td><td id="altitude"></td></tr>
+        <tr><td><strong>Vegetação</strong></td><td id="vegetacao"></td></tr>
+    </table>
+    <button class="bt-fechar" id="fecharModal">Fechar</button>
+</dialog>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

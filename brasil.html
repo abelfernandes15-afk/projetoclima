@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasil - CLIMAPP</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.mapa-wrapper{
+    display: inline-block;
+    max-width: 100%;
+    margin-top: 20px;
+}
+.mapa-wrapper img{
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+area{ cursor: pointer; }
+</style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+<nav class="sidebar" id="sidebar">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <span class="menu-toggle-label">CLIMAPP</span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <a href="home.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="brasil.html" class="active">
+        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-label">Brasil</span>
+    </a>
+    <a href="mexico.html">
+        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-label">México</span>
+    </a>
+    <a href="estados-unidos.html">
+        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-label">Estados Unidos</span>
+    </a>
+    <a href="canada.html">
+        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-label">Canadá</span>
+    </a>
+    <a href="franca.html">
+        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-label">França</span>
+    </a>
+    <a href="alemanha.html">
+        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-label">Alemanha</span>
+    </a>
+    <div class="sidebar-footer">
+        <button class="btn-sair" onclick="sair()">
+            <span class="btn-sair-label">Sair</span>
+        </button>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+<header>
+    <div class="logo">Brasil</div>
+</header>
+
+<div class="container">
+    <h1>Mapa do Brasil</h1>
+    <p>Clique nos estados destacados para visualizar informações climáticas e geográficas.</p>
+
+    <div class="mapa-wrapper">
+        <img src="img/mapa-brasil.svg" usemap="#image-map" alt="Mapa do Brasil">
+        <map name="image-map">
+            <area alt="minas gerais" title="minas gerais" href="#" coords="375,421,381,420,385,420,397,419,400,423,400,428,402,437,407,439,409,443,406,445,407,453,409,454,411,459,416,459,415,455,424,456,430,453,433,452,438,450,446,450,456,450,460,446,466,434,469,429,472,424,481,415,482,409,480,407,482,403,481,400,482,395,490,393,492,392,487,388,490,379,494,377,497,368,485,366,478,363,475,357,464,355,457,347,448,350,446,342,441,342,425,350,423,353,419,354,415,350,411,348,411,352,408,351,408,359,408,364,404,364,400,367,400,372,403,375,403,379,398,381,398,385,401,386,401,391,396,396,388,399,380,398,375,399,370,401,363,401,357,401,354,408,349,411,348,414,348,417,356,416,361,416,366,416,371,418,374,420,374,422,375,422,380,421,378,421" shape="poly"
+            onclick="abrirModal(event,'Minas Gerais','Tropical de Altitude','21,4 milhões','660 metros','Cerrado e Mata Atlântica')">
+
+            <area alt="mato grosso" title="mato grosso" href="#" coords="274,271,360,277,357,286,353,299,354,312,353,321,351,330,347,349,337,354,335,362,326,361,325,371,319,376,317,384,319,387,312,388,314,384,314,378,309,379,304,384,294,383,283,380,274,377,271,378,265,386,261,387,257,384,247,378,250,369,250,364,225,365,224,352,222,337,222,331,219,330,230,312,226,303,227,294,222,293,219,291,208,292,205,292,205,265,241,264,247,263,250,243,253,245,254,252,256,262,270,273,273,272,276,272,275,272" shape="poly"
+            onclick="abrirModal(event,'Mato Grosso','Tropical Continental','3,9 milhões','300 metros','Cerrado e Amazônia')">
+
+            <area alt="sao paulo" title="sao paulo" href="#" coords="373,423,368,420,356,418,349,417,350,422,348,423,343,426,339,434,336,440,330,449,325,452,325,454,331,454,339,454,344,455,351,457,356,458,362,459,367,466,368,473,371,477,371,481,370,483,376,483,379,485,380,488,383,489,386,488,396,483,402,476,411,473,420,471,429,468,426,465,427,461,434,459,437,458,432,458,428,457,427,456,423,458,420,459,416,461,409,463,407,458,404,456,403,449,405,441,402,441,396,433,396,426,396,421,392,420,377,423,374,423" shape="poly"
+            onclick="abrirModal(event,'São Paulo','Subtropical Úmido','46 milhões','760 metros','Mata Atlântica')">
+
+            <area alt="bahia" title="bahia" href="#" coords="435,293,432,295,424,288,420,288,415,295,412,300,418,303,418,309,415,313,415,316,420,318,418,323,417,329,415,337,418,341,420,345,419,351,437,342,443,340,448,339,450,344,455,343,463,349,471,353,477,354,484,361,497,365,501,367,503,371,499,379,493,385,495,389,496,396,499,397,505,393,510,374,512,364,512,350,512,339,513,331,516,327,518,322,525,326,531,315,534,310,530,309,527,299,525,295,532,294,531,285,528,279,524,272,517,268,512,266,507,271,504,273,499,273,501,276,497,278,493,278,491,273,489,268,487,266,484,270,481,273,475,275,468,277,462,277,460,275,453,275,453,284,453,288,446,293,441,292,432,296,432,295,434,295" shape="poly"
+            onclick="abrirModal(event,'Bahia','Tropical Semiárido','14,9 milhões','400 metros','Caatinga e Cerrado')">
+        </map>
+    </div>
+</div>
+
+<dialog id="minhaModal">
+    <h2 id="titulo"></h2>
+    <table>
+        <tr><td><strong>Clima</strong></td><td id="clima"></td></tr>
+        <tr><td><strong>População</strong></td><td id="populacao"></td></tr>
+        <tr><td><strong>Altitude</strong></td><td id="altitude"></td></tr>
+        <tr><td><strong>Vegetação</strong></td><td id="vegetacao"></td></tr>
+    </table>
+    <button class="bt-fechar" id="fecharModal">Fechar</button>
+</dialog>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

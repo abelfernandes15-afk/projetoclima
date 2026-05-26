@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+  <rect width="500" height="300" fill="#1a237e" rx="20"/>
+  <ellipse cx="250" cy="150" rx="200" ry="120" fill="#1565c0" opacity="0.5"/>
+  <text x="250" y="165" text-anchor="middle" font-size="90" font-family="serif">🌍</text>
+</svg>

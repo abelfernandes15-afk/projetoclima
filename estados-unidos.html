@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estados Unidos - CLIMAPP</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.mapa-container{
+    display:flex;
+    justify-content:center;
+    margin-top:25px;
+}
+.mapa-container img{
+    border-radius:15px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+area{ cursor:pointer; }
+</style>
+</head>
+<body>
+
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMenu()"></div>
+
+<nav class="sidebar" id="sidebar">
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <span class="menu-toggle-label">CLIMAPP</span>
+    </button>
+    <div class="sidebar-divider"></div>
+    <a href="home.html">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="brasil.html">
+        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-label">Brasil</span>
+    </a>
+    <a href="mexico.html">
+        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-label">México</span>
+    </a>
+    <a href="estados-unidos.html" class="active">
+        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-label">Estados Unidos</span>
+    </a>
+    <a href="canada.html">
+        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-label">Canadá</span>
+    </a>
+    <a href="franca.html">
+        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-label">França</span>
+    </a>
+    <a href="alemanha.html">
+        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-label">Alemanha</span>
+    </a>
+    <div class="sidebar-footer">
+        <button class="btn-sair" onclick="sair()">
+            <span class="btn-sair-label">Sair</span>
+        </button>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+<header>
+    <div class="logo">Estados Unidos</div>
+</header>
+
+<div class="container">
+    <h1>Mapa dos Estados Unidos</h1>
+    <p>Clique em um dos estados destacados no mapa.</p>
+
+    <div class="mapa-container">
+        <img src="img/estados-unidos.svg" usemap="#image-map" alt="Mapa dos Estados Unidos">
+        <map name="image-map">
+            <area alt="texas" title="texas" href="#" coords="513,468,515,483,515,499,513,517,502,522,483,538,460,551,454,566,447,582,452,593,440,598,414,589,397,567,382,541,380,525,370,514,358,509,344,513,343,522,332,517,319,509,316,497,301,480,288,459,358,465,360,449,361,363,408,367,406,399,405,410,417,414,425,418,437,421,456,426,473,431,486,426,494,428,507,432,511,445" shape="poly"
+            onclick="abrirModal(event,'Texas','Subtropical','31,3 milhões','520 metros','Pradarias e Savanas')">
+
+            <area alt="california" title="california" href="#" coords="64,171,118,190,108,253,164,371,170,384,158,406,153,411,140,415,121,408,111,387,101,370,76,355,63,305,64,283,62,272,53,253,52,208" shape="poly"
+            onclick="abrirModal(event,'Califórnia','Mediterrâneo','39,4 milhões','884 metros','Florestas e Chaparral')">
+
+            <area alt="florida" title="florida" href="#" coords="752,516,735,481,727,483,716,483,684,488,673,485,658,482,639,486,635,493,648,493,660,496,672,506,682,497,692,493,703,503,708,507,716,516,720,527,718,538,724,552,733,565,744,578,754,591,765,583,766,567,764,551,758,542" shape="poly"
+            onclick="abrirModal(event,'Flórida','Tropical','23,4 milhões','30 metros','Mangues e Pântanos')">
+
+            <area alt="new york" title="new york" href="#" coords="800,125,791,126,778,139,768,151,775,163,767,177,754,177,737,181,739,189,728,210,751,205,770,201,783,195,792,193,804,206,819,214,820,194,818,182,812,167,812,154,808,141,807,129" shape="poly"
+            onclick="abrirModal(event,'Nova York','Temperado Úmido','19,9 milhões','300 metros','Florestas Temperadas')">
+        </map>
+    </div>
+</div>
+
+<dialog id="minhaModal">
+    <h2 id="titulo"></h2>
+    <table>
+        <tr><td><strong>Clima</strong></td><td id="clima"></td></tr>
+        <tr><td><strong>População</strong></td><td id="populacao"></td></tr>
+        <tr><td><strong>Altitude</strong></td><td id="altitude"></td></tr>
+        <tr><td><strong>Vegetação</strong></td><td id="vegetacao"></td></tr>
+    </table>
+    <button class="bt-fechar" id="fecharModal">Fechar</button>
+</dialog>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
