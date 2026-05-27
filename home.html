@@ -9,6 +9,14 @@
 <title>CLIMAPP - Home</title>
 
 <link rel="stylesheet" href="style.css">
+<script>
+// Proteção de rota - executa antes de renderizar
+(function(){
+  if(localStorage.getItem("logado")!=="true"){
+    window.location.replace("login.html");
+  }
+})();
+</script>
 
 <style>
 
@@ -236,37 +244,37 @@ CLIMAPP
 <div class="sidebar-divider"></div>
 
 <a href="home.html" class="active">
-<span class="nav-icon">🏠</span>
+<span class="nav-icon"></span>
 <span class="nav-label">Home</span>
 </a>
 
 <a href="brasil.html">
-<span class="nav-icon">🇧🇷</span>
+<span class="nav-icon"></span>
 <span class="nav-label">Brasil</span>
 </a>
 
 <a href="mexico.html">
-<span class="nav-icon">🇲🇽</span>
+<span class="nav-icon"></span>
 <span class="nav-label">México</span>
 </a>
 
 <a href="estados-unidos.html">
-<span class="nav-icon">🇺🇸</span>
+<span class="nav-icon"></span>
 <span class="nav-label">Estados Unidos</span>
 </a>
 
 <a href="canada.html">
-<span class="nav-icon">🇨🇦</span>
+<span class="nav-icon"></span>
 <span class="nav-label">Canadá</span>
 </a>
 
 <a href="franca.html">
-<span class="nav-icon">🇫🇷</span>
+<span class="nav-icon"></span>
 <span class="nav-label">França</span>
 </a>
 
 <a href="alemanha.html">
-<span class="nav-icon">🇩🇪</span>
+<span class="nav-icon"></span>
 <span class="nav-label">Alemanha</span>
 </a>
 
@@ -274,11 +282,7 @@ CLIMAPP
 
 <button class="btn-sair"
 onclick="sair()">
-
-<span class="btn-sair-label">
-Sair
-</span>
-
+<span class="btn-sair-label">Sair</span>
 </button>
 
 </div>
@@ -310,24 +314,14 @@ Bem-vindo ao CLIMAPP
 Explore mapas interativos,
 clima, vegetação,
 população e características
-de vários países de forma
-moderna, dinâmica e intuitiva.
+de vários países de forma dinâmica e intuitiva.
 
 </p>
-
-<a href="brasil.html">Explorar Países</a>
-
 </div>
 
 </section>
 
-<footer>
-
-<p>
-© 2026 - CLIMAPP
-</p>
-
-</footer>
+<footer><p>© 2026 - CLIMAPP</p></footer>
 
 </div>
 

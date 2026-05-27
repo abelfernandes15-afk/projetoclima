@@ -29,36 +29,36 @@ area{ cursor:pointer; }
     </button>
     <div class="sidebar-divider"></div>
     <a href="home.html">
-        <span class="nav-icon">🏠</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Home</span>
     </a>
     <a href="brasil.html">
-        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Brasil</span>
     </a>
     <a href="mexico.html" class="active">
-        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">México</span>
     </a>
     <a href="estados-unidos.html">
-        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Estados Unidos</span>
     </a>
     <a href="canada.html">
-        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Canadá</span>
     </a>
     <a href="franca.html">
-        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">França</span>
     </a>
     <a href="alemanha.html">
-        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Alemanha</span>
     </a>
     <div class="sidebar-footer">
         <button class="btn-sair" onclick="sair()">
-            <span class="btn-sair-label">Sair</span>
+        <span class="btn-sair-label">Sair</span>
         </button>
     </div>
 </nav>
@@ -100,8 +100,14 @@ area{ cursor:pointer; }
     </table>
     <button class="bt-fechar" id="fecharModal">Fechar</button>
 </dialog>
-
 </div>
+
+<script>
+(function(){
+if(localStorage.getItem("logado")!=="true"){
+    window.location.replace("login.html");}
+})();
+</script>
 
 <script src="script.js"></script>
 </body>

@@ -1,9 +1,5 @@
 /* =========================
-   CLIMAPP — script.js
-========================= */
-
-/* =========================
-   HASH DE SENHA
+    HASH DE SENHA
 ========================= */
 async function hashSenha(senha) {
     const encoded = new TextEncoder().encode(senha);
@@ -13,53 +9,7 @@ async function hashSenha(senha) {
 }
 
 /* =========================
-   UTILITÁRIO: nome do arquivo atual
-========================= */
-function paginaAtual() {
-    const path = window.location.pathname;
-    const arquivo = path.split("/").pop().split("\\").pop().toLowerCase();
-    // se vier vazio (index implícito), trata como index.html
-    return arquivo || "index.html";
-}
-
-/* =========================
-   PROTEÇÃO DE ROTAS
-========================= */
-const PAGINAS_PROTEGIDAS = [
-    "index.html",
-    "home.html",
-    "brasil.html",
-    "mexico.html",
-    "estados-unidos.html",
-    "canada.html",
-    "franca.html",
-    "alemanha.html"
-];
-
-const PAGINAS_PUBLICAS = [
-    "login.html",
-    "cadastro.html"
-];
-
-(function verificarLogin() {
-    const pagina  = paginaAtual();
-    const logado  = localStorage.getItem("logado");
-
-    // se está numa página protegida sem login → vai pro login
-    if (PAGINAS_PROTEGIDAS.includes(pagina) && !logado) {
-        window.location.replace("login.html");
-        return;
-    }
-
-    // se já está logado e tenta acessar login/cadastro → vai pra home
-    if ((pagina === "login.html" || pagina === "cadastro.html") && logado) {
-        window.location.replace("index.html");
-        return;
-    }
-})();
-
-/* =========================
-   MENU LATERAL
+    MENU LATERAL
 ========================= */
 function toggleMenu() {
     const sidebar = document.getElementById("sidebar");
@@ -69,12 +19,12 @@ function toggleMenu() {
 }
 
 /* =========================
-   MODAL DOS ESTADOS
+    MODAL DOS ESTADOS
 ========================= */
 function abrirModal(event, nome, climaTexto, pop, alt, veg) {
     if (event) event.preventDefault();
 
-    const modal     = document.getElementById("minhaModal");
+    const modal = document.getElementById("minhaModal");
     if (!modal) return;
 
     document.getElementById("titulo").innerHTML    = nome;
@@ -96,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fechar.addEventListener("click", () => modal.close());
     }
 
-    // fechar clicando fora
     modal.addEventListener("click", function (e) {
         const r = modal.getBoundingClientRect();
         if (
@@ -153,7 +102,7 @@ async function cadastrar() {
 }
 
 /* =========================
-   LOGIN
+    LOGIN
 ========================= */
 async function login() {
     const emailInput = document.getElementById("email");
@@ -181,8 +130,7 @@ async function login() {
 
     if (email === emailSalvo && senhaHash === senhaSalva) {
         localStorage.setItem("logado", "true");
-        // redireciona sem deixar histórico de login (replace)
-        window.location.replace("index.html");
+        window.location.replace("home.html");
     } else {
         alert("E-mail ou senha incorretos!");
         senhaInput.value = "";
@@ -191,7 +139,7 @@ async function login() {
 }
 
 /* =========================
-   SAIR
+    SAIR
 ========================= */
 function sair() {
     localStorage.removeItem("logado");
@@ -199,8 +147,7 @@ function sair() {
 }
 
 /* =========================
-   EXIBIR NOME DO USUÁRIO
-   (chame em home e páginas protegidas)
+    EXIBIR NOME DO USUÁRIO
 ========================= */
 document.addEventListener("DOMContentLoaded", function () {
     const nome = localStorage.getItem("nome");

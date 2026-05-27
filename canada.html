@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Canadá - CLIMAPP</title>
-
 <link rel="stylesheet" href="style.css">
-
 <style>
 
 .mapa-wrapper{
@@ -62,32 +57,32 @@ area{
     </a>
 
     <a href="brasil.html">
-        <span class="nav-icon">🇧🇷</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Brasil</span>
     </a>
 
     <a href="mexico.html">
-        <span class="nav-icon">🇲🇽</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">México</span>
     </a>
 
     <a href="estados-unidos.html">
-        <span class="nav-icon">🇺🇸</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Estados Unidos</span>
     </a>
 
     <a href="canada.html" class="active">
-        <span class="nav-icon">🇨🇦</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Canadá</span>
     </a>
 
     <a href="franca.html">
-        <span class="nav-icon">🇫🇷</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">França</span>
     </a>
 
     <a href="alemanha.html">
-        <span class="nav-icon">🇩🇪</span>
+        <span class="nav-icon"></span>
         <span class="nav-label">Alemanha</span>
     </a>
 
@@ -183,6 +178,13 @@ onclick="abrirModal(event,'Ontário','Frio Temperado','15 milhões','250 metros'
 </dialog>
 
 </div>
+<script>
+(function(){
+if(localStorage.getItem("logado")!=="true"){
+    window.location.replace("login.html");
+ }
+})();
+</script>
 
 <script src="script.js"></script>
 
